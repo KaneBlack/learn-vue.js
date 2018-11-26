@@ -11,14 +11,14 @@
 </template>
 
 <script>
-  export default {
-    name: 'HelloSPA',
-    data () {
-      return {
-        msg: 'Welcome to Hello SPA ',
-      }
+export default {
+  name: 'HelloSPA',
+  data () {
+    return {
+      msg: 'Welcome to Hello SPA '
     }
   }
+}
 </script>
 
 <style scoped>

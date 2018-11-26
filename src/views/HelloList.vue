@@ -37,7 +37,6 @@
 
 					<hr>
 
-
 					<p>
 						{{ test }}
 					</p>
@@ -55,95 +54,95 @@
 
 <script>
 
-  import UserList from '../components/UserList'
+import UserList from '../components/UserList'
 
-  export default {
-    name: 'HelloList',
-    components: {
-      UserList
+export default {
+  name: 'HelloList',
+  components: {
+    UserList
+  },
+  data () {
+    return {
+      msg: 'Welcome to Hello List ',
+      test: 'Hello world enter',
+      testNum: '0',
+      list: [],
+      condition: true,
+      screenWidth: window.outerWidth
+    }
+  },
+  computed: {
+    totalUsers: function () {
+      return this.list.length
     },
-    data () {
-      return {
-        msg: 'Welcome to Hello List ',
-        test: 'Hello world enter',
-        testNum: '0',
-        list: [],
-        condition: true,
-        screenWidth: window.outerWidth,
-      }
+    totalUsersTitle: function () {
+      return `Users lenght: ${this.totalUsers}`
     },
-    computed: {
-      totalUsers: function () {
-        return this.list.length
-      },
-      totalUsersTitle: function () {
-        return `Users lenght: ${ this.totalUsers }`
-      },
-      filteredData: function () {
-        return this.condition ? this.list : this.list.filter(item => item.title)
-      }
+    filteredData: function () {
+      return this.condition ? this.list : this.list.filter(item => item.title)
+    }
+  },
+  watch: {
+    screenWidth: 'screenWidthChanged'
+  },
+  mounted: function () {
+    window.addEventListener('resize', () => {
+      this.screenWidth = window.outerWidth
+    })
+  },
+  methods: {
+    changeTest: function (value) {
+      this.test = value
     },
-    watch: {
-      screenWidth: 'screenWidthChanged'
-    },
-    mounted: function () {
-      window.addEventListener('resize', () => {
-        this.screenWidth = window.outerWidth
-      })
-    },
-    methods: {
-      changeTest: function (value) {
-        this.test = value
-      },
 
-      removeFromList: function (id) {
-        this.list = this.list.filter(item => item.id !== id)
-      },
+    removeFromList: function (id) {
+      this.list = this.list.filter(item => item.id !== id)
+    },
 
-      screenWidthChanged: function () {
-        console.log('screenWidth changed', this.screenWidth)
-      },
+    screenWidthChanged: function () {
+      console.log('screenWidth changed', this.screenWidth)
+    },
 
-      loadData: function () {
-        this.list = [
-          {
-            'id': 0,
-            'isActive': false,
-            'balance': 51.232,
-            'picture': 0,
-            'age': 32,
-            'accessLevel': 'user',
-            'firstName': 'Man1',
-            'lastName': 'Realman',
-            'company': 'Some company1',
-          },
-          {
-            'id': 1,
-            'isActive': true,
-            'balance': 65.2,
-            'picture': 0,
-            'age': 32,
-            'accessLevel': 'user',
-            'firstName': 'Man2',
-            'lastName': 'Realman',
-            'company': 'Some company2',
-          },
-          {
-            'id': 2,
-            'isActive': false,
-            'balance': 231.151,
-            'picture': 0,
-            'age': 32,
-            'accessLevel': 'user',
-            'firstName': 'Man3',
-            'lastName': 'Realman',
-            'company': 'Some company3',
-          },
+    loadData: function () {
+      this.list = [
+        {
+          'id': 0,
+          'isActive': false,
+          'balance': 51.232,
+          'picture': 0,
+          'age': 32,
+          'accessLevel': 'user',
+          'firstName': 'Man1',
+          'lastName': 'Realman',
+          'company': 'Some company1'
+        },
+        {
+          'id': 1,
+          'isActive': true,
+          'balance': 65.2,
+          'picture': 0,
+          'age': 32,
+          'accessLevel': 'user',
+          'firstName': 'Man2',
+          'lastName': 'Realman',
+          'company': 'Some company2'
+        },
+        {
+          'id': 2,
+          'isActive': false,
+          'balance': 231.151,
+          'picture': 0,
+          'age': 32,
+          'accessLevel': 'user',
+          'firstName': 'Man3',
+          'lastName': 'Realman',
+          'company': 'Some company3'
+        }
 
-        ]
-      }
+      ]
     }
   }
+}
 </script>
 <style>
 </style>

@@ -25,29 +25,28 @@
 <script>
 	import UserList from '@/components/UserList'
 	import axios from 'axios'
-  export default {
-    name: 'SpaUsers',
-	data: () => ({
-	  msg:'Welcome to users list',
-	  list: []
-	}),
-	props: {
 
-	},
-	components: {
-      'user-list': UserList
-	},
-	methods: {
-      loadData: function () {
-        axios.get('http://localhost:3004/users')
-		  .then(response => response.data)
-		  .then(response => (this.list = response))
-      },
-      removeFromList: function (id) {
-        this.list = this.list.filter(item => item.id !== id)
-      },
+	export default {
+		name: 'SpaUsers',
+		data: () => ({
+			msg: 'Welcome to users list',
+			list: []
+		}),
+		props: {},
+		components: {
+			'user-list': UserList
+		},
+		methods: {
+			loadData: function () {
+				axios.get('http://localhost:3004/users')
+				.then(response => response.data)
+				.then(response => (this.list = response))
+			},
+			removeFromList: function (id) {
+				this.list = this.list.filter(item => item.id !== id)
+			}
+		}
 	}
-  }
 </script>
 
 <style scoped>

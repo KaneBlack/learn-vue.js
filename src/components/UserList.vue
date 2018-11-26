@@ -44,29 +44,29 @@
 </template>
 
 <script>
-  export default {
-    name: 'UserList',
-    props: {
-      list: {
-        type: Array,
-        required: true
-      },
-      title: {
-        type: String,
-        default: 'test message (not require)'
-      }
+export default {
+  name: 'UserList',
+  props: {
+    list: {
+      type: Array,
+      required: true
     },
-    data () {
-      return {
-        userListtest: '123'
-      }
-    },
-    methods: {
-      removeUser: function (id) {
-        this.$emit('remove', id)
-      }
+    title: {
+      type: String,
+      default: 'test message (not require)'
+    }
+  },
+  data () {
+    return {
+      userListtest: '123'
+    }
+  },
+  methods: {
+    removeUser: function (id) {
+      this.$emit('remove', id)
     }
   }
+}
 </script>
 
 <style scoped>

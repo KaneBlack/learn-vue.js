@@ -33,9 +33,9 @@
 </template>
 
 <script>
-  export default {
-    name: 'MainNav',
-  }
+export default {
+  name: 'MainNav'
+}
 </script>
 <style lang="scss">
 

@@ -8,14 +8,14 @@
 </template>
 
 <script>
-  import MainNav from './components/MainNav'
+import MainNav from './components/MainNav'
 
-  export default {
-    name: 'App',
-    components: {
-      MainNav,
-    },
+export default {
+  name: 'App',
+  components: {
+    MainNav
   }
+}
 </script>
 
 <style lang="scss">
